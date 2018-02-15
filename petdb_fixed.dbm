@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0" last-position="0,563" last-zoom="1"
+	 default-owner="postgres">
+<database name="petdb">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<sequence name="PK_clientes_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="clientes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="20"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_clientes_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nome_completo" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="data_nascimento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="cpf" not-null="true">
+		<type name="character varying" length="14"/>
+	</column>
+	<column name="rg">
+		<type name="character varying" length="25"/>
+	</column>
+	<column name="orgao_expedidor_rg">
+		<type name="character varying" length="6"/>
+	</column>
+	<column name="data_emissao_rg">
+		<type name="date" length="0"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="90"/>
+	</column>
+	<column name="pre_cadastro" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="UQ_clientes_cpf" type="uq-constr" table="public.clientes">
+		<columns names="cpf" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="UQ_clientes_rg" type="uq-constr" table="public.clientes">
+		<columns names="rg" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="clientes_pk" type="pk-constr" table="public.clientes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_cliente_enderecos_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="clientes_enderecos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="500" y="120"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_cliente_enderecos_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="endereco" not-null="true">
+		<type name="character varying" length="55"/>
+	</column>
+	<column name="endereco_numero" not-null="true">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="bairro" not-null="true">
+		<type name="character varying" length="25"/>
+	</column>
+	<column name="complemento">
+		<type name="character varying" length="25"/>
+	</column>
+	<constraint name="clientes_enderecos_pk" type="pk-constr" table="public.clientes_enderecos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_clientes_contatos_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="clientes_contatos" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="20"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_clientes_contatos_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="telefone" not-null="true">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="fala_com" not-null="true">
+		<type name="character varying" length="35"/>
+	</column>
+	<constraint name="clientes_contatos_pk" type="pk-constr" table="public.clientes_contatos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_pets_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="pets">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="260"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_pets_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nome_pet" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="data_nascimento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="tem_pacote" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="valor_pacote">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="com_tosa_higienica">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="especie" not-null="true">
+		<type name="char" length="1"/>
+		<comment><![CDATA['c'->canino, 'f'->felino]]></comment>
+	</column>
+	<column name="raca_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="dia_pacote">
+		<type name="smallint" length="0"/>
+		<comment><![CDATA[0->segunda, 6->sabado]]></comment>
+	</column>
+	<column name="transporte">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="turno_servico">
+		<type name="char" length="1"/>
+		<comment><![CDATA['m'->manha, 't'->tarde]]></comment>
+	</column>
+	<column name="pre_cadastro" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pets_pk" type="pk-constr" table="public.pets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_racas_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="racas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="480" y="280"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_racas_id_seq&quot;">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="raca_descricao" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="tipo_raca" not-null="true">
+		<type name="char" length="1"/>
+		<comment><![CDATA['c'->canina, 'f'->felina]]></comment>
+	</column>
+	<constraint name="UQ_racas_descricao" type="uq-constr" table="public.racas">
+		<columns names="raca_descricao" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="racas_pk" type="pk-constr" table="public.racas">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_caixas_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="caixas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="400"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_caixas_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="data_abertura" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="valor_abertura" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_fechamento_total">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_fecha_dinheiro">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_fecha_cheque">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_fecha_debito">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_fecha_credito">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<constraint name="UQ_caixas_abertura" type="uq-constr" table="public.caixas">
+		<columns names="data_abertura" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="caixas_pk" type="pk-constr" table="public.caixas">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_produtos_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="produtos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="880" y="20"/>
+	<column name="codigo" not-null="true" sequence="public.&quot;PK_produtos_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="descricao" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="codigobarra" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="codigofabrica" not-null="true">
+		<type name="character varying" length="22"/>
+	</column>
+	<column name="embalagem" not-null="true">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="qtdembalagem" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="custonota" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="custofrete" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="custofinal" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="precoultimavenda">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="precominimo" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="precoavista" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="precoparcelado" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<constraint name="produtos_pk" type="pk-constr" table="public.produtos">
+		<columns names="codigo" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="UQ_produtos_codigobarras" type="uq-constr" table="public.produtos">
+		<columns names="codigobarra" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_servicos_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="servicos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="880" y="280"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_servicos_id_seq&quot;">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descricao_servico" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="valor_servico" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="habilitado" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="servicos_pk" type="pk-constr" table="public.servicos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_servicos_diarios_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="servicos_diarios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="600"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_servicos_diarios_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="data_realizado" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="servico_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descricao_servico" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="pet_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="quantidade" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="valor_unitario" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_total" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="em_ficha" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="recebido" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="servicos_diarios_pk" type="pk-constr" table="public.servicos_diarios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_produtos_vendas_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="produtos_vendas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="460" y="600"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_produtos_vendas_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="produto_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="em_ficha" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="recebido" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="quantidade" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="descricao_produto" not-null="true">
+		<type name="character varying" length="55"/>
+	</column>
+	<column name="valor_unitario" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="valor_total" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="und_medida_venda" not-null="true">
+		<type name="char" length="2"/>
+	</column>
+	<constraint name="produtos_vendas_pk" type="pk-constr" table="public.produtos_vendas">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_acertos_clientes_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="acertos_fichas_clientes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="380" y="840"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_acertos_clientes_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="data_acerto" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="valor_total" not-null="true">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="credito_cliente_id">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="valor_credito_cliente">
+		<type name="decimal" length="19" precision="3"/>
+	</column>
+	<column name="caixa_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="categoria" not-null="true">
+		<type name="char" length="2"/>
+		<comment><![CDATA['BL'->Boleto,'RS'->Dinheiro,'CC'->Cartao Debito]]></comment>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<constraint name="acertos_fichas_clientes_pk" type="pk-constr" table="public.acertos_fichas_clientes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_acertos_clientes_pagamentos_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="acertos_fichas_clientes_pagamentos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="1060"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_acertos_clientes_pagamentos_id_seq&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="acerto_ficha_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="tipo_recebimento" not-null="true">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="valor_recebimento" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="autorizacao_cartao">
+		<type name="character varying" length="12"/>
+	</column>
+	<column name="numero_cheque">
+		<type name="character varying" length="12"/>
+	</column>
+	<column name="bandeira_cartao">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="acertos_fichas_clientes_pagamentos_pk" type="pk-constr" table="public.acertos_fichas_clientes_pagamentos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="produtos_vendas_pagamentos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="660" y="1080"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_produtos_vendas_pagamentos_id&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="produto_venda_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="tipo_recebimento" not-null="true">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="valor_recebimento" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="autorizacao_cartao">
+		<type name="character varying" length="12"/>
+	</column>
+	<column name="numero_cheque">
+		<type name="character varying" length="12"/>
+	</column>
+	<column name="bandeira_cartao">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="produtos_vendas_pagamentos_pk" type="pk-constr" table="public.produtos_vendas_pagamentos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_produtos_vendas_pagamentos_id"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="creditos_clientes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="860"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_creditos_clientes_id&quot;">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="valor_credito" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="data_credito" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="utilizado" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="data_utilizacao">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="creditos_clientes_pk" type="pk-constr" table="public.creditos_clientes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_creditos_clientes_id"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="acertos_fichas_clientes_detalhes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="860" y="840"/>
+	<column name="id" not-null="true" sequence="public.&quot;PK_acertos_clientes_detalhes_id&quot;">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="acerto_ficha_cliente_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="servico_diario_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="produto_venda_id" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="descricao_item" not-null="true">
+		<type name="character varying" length="55"/>
+	</column>
+	<column name="und_medida_item" not-null="true">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="qtd_item" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="valor_unitario_item" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<column name="valor_total_item" not-null="true">
+		<type name="numeric" length="19" precision="3"/>
+	</column>
+	<constraint name="acertos_fichas_clientes_detalhes_pk" type="pk-constr" table="public.acertos_fichas_clientes_detalhes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="PK_acertos_clientes_detalhes_id"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<constraint name="FK_clientes_enderecos_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.clientes" table="public.clientes_enderecos">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_clientes_contatos_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.clientes" table="public.clientes_contatos">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_clientes_pets_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.clientes" table="public.pets">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_pets_racas_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.racas" table="public.pets">
+	<columns names="raca_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_servicos_diarios_servicos_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.servicos" table="public.servicos_diarios">
+	<columns names="servico_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_servicos_diarios_clientes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.clientes" table="public.servicos_diarios">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_servicos_diarios_pets_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.pets" table="public.servicos_diarios">
+	<columns names="pet_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_produtos_vendas_produtos_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.produtos" table="public.produtos_vendas">
+	<columns names="produto_id" ref-type="src-columns"/>
+	<columns names="codigo" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_produtos_vendas_clientes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.clientes" table="public.produtos_vendas">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_acertos_fichas_caixas_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.caixas" table="public.acertos_fichas_clientes">
+	<columns names="caixa_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_acertos_fichas_clientes_clientes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.clientes" table="public.acertos_fichas_clientes">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_acertos_creditos_clientes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.creditos_clientes" table="public.acertos_fichas_clientes">
+	<columns names="credito_cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_acertos_fichas_pagamentos_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.acertos_fichas_clientes" table="public.acertos_fichas_clientes_pagamentos">
+	<columns names="acerto_ficha_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_produtos_vendas_pgtos_produtos_venda_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.produtos_vendas" table="public.produtos_vendas_pagamentos">
+	<columns names="produto_venda_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_creditos_clientes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.clientes" table="public.creditos_clientes">
+	<columns names="cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_acerto_ficha_detalhes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.acertos_fichas_clientes" table="public.acertos_fichas_clientes_detalhes">
+	<columns names="acerto_ficha_cliente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_servico_diario_detalhes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.servicos_diarios" table="public.acertos_fichas_clientes_detalhes">
+	<columns names="servico_diario_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="FK_produto_venda_detalhes_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.produtos_vendas" table="public.acertos_fichas_clientes_detalhes">
+	<columns names="produto_venda_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_clientes_enderecos_clientes" type="relfk"
+	 src-table="public.clientes_enderecos"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_clientes_contatos_clientes" type="relfk"
+	 src-table="public.clientes_contatos"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pets_clientes" type="relfk"
+	 src-table="public.pets"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pets_racas" type="relfk"
+	 src-table="public.pets"
+	 dst-table="public.racas"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_servicos_diarios_servicos" type="relfk"
+	 src-table="public.servicos_diarios"
+	 dst-table="public.servicos"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_servicos_diarios_clientes" type="relfk"
+	 src-table="public.servicos_diarios"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_servicos_diarios_pets" type="relfk"
+	 src-table="public.servicos_diarios"
+	 dst-table="public.pets"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_produtos_vendas_produtos" type="relfk"
+	 src-table="public.produtos_vendas"
+	 dst-table="public.produtos"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_produtos_vendas_clientes" type="relfk"
+	 src-table="public.produtos_vendas"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_caixas" type="relfk"
+	 src-table="public.acertos_fichas_clientes"
+	 dst-table="public.caixas"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_clientes" type="relfk"
+	 src-table="public.acertos_fichas_clientes"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_pagamentos_acertos_fichas_clientes" type="relfk"
+	 src-table="public.acertos_fichas_clientes_pagamentos"
+	 dst-table="public.acertos_fichas_clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_produtos_vendas_pagamentos_produtos_vendas" type="relfk"
+	 src-table="public.produtos_vendas_pagamentos"
+	 dst-table="public.produtos_vendas"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_creditos_clientes_clientes" type="relfk"
+	 src-table="public.creditos_clientes"
+	 dst-table="public.clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_creditos_clientes" type="relfk"
+	 src-table="public.acertos_fichas_clientes"
+	 dst-table="public.creditos_clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_detalhes_acertos_fichas_clientes" type="relfk"
+	 src-table="public.acertos_fichas_clientes_detalhes"
+	 dst-table="public.acertos_fichas_clientes"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_detalhes_servicos_diarios" type="relfk"
+	 src-table="public.acertos_fichas_clientes_detalhes"
+	 dst-table="public.servicos_diarios"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acertos_fichas_clientes_detalhes_produtos_vendas" type="relfk"
+	 src-table="public.acertos_fichas_clientes_detalhes"
+	 dst-table="public.produtos_vendas"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
