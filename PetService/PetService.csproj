@@ -157,7 +157,31 @@
     <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\acertos_fichas_cliente.datasource" />
+    <None Include="Properties\DataSources\acertos_fichas_clientes_detalhe.datasource" />
+    <None Include="Properties\DataSources\acertos_fichas_clientes_pagamento.datasource" />
+    <None Include="Properties\DataSources\caixa.datasource" />
+    <None Include="Properties\DataSources\cliente.datasource" />
+    <None Include="Properties\DataSources\clientes_contato.datasource" />
+    <None Include="Properties\DataSources\clientes_endereco.datasource" />
+    <None Include="Properties\DataSources\creditos_cliente.datasource" />
+    <None Include="Properties\DataSources\Enum.datasource" />
+    <None Include="Properties\DataSources\Enum.DiaDaSemana.datasource" />
+    <None Include="Properties\DataSources\Enum.EspeciePet.datasource" />
+    <None Include="Properties\DataSources\Enum.PorteAnimal.datasource" />
+    <None Include="Properties\DataSources\Enum.TurnoDia.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\pet.datasource" />
+    <None Include="Properties\DataSources\PetRepo.datasource" />
+    <None Include="Properties\DataSources\PetRepo.IFactory.datasource" />
+    <None Include="Properties\DataSources\PetRepo.Record`1.datasource" />
+    <None Include="Properties\DataSources\produto.datasource" />
+    <None Include="Properties\DataSources\produtos_venda.datasource" />
+    <None Include="Properties\DataSources\produtos_vendas_pagamento.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\raca.datasource" />
+    <None Include="Properties\DataSources\servico.datasource" />
+    <None Include="Properties\DataSources\servicos_diario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

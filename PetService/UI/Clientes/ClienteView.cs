@@ -22,5 +22,10 @@ namespace PetService.UI.Clientes
                 c = new cliente();
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            desk.CloseCurrentTab();
+        }
     }
 }
