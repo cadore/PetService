@@ -12,6 +12,7 @@ using PetService.UI.Pets.Racas;
 using DevExpress.XtraEditors;
 using PetService.Utils;
 using PetService.UI.Clientes;
+using PetService.UI.Utils;
 
 namespace PetService.UI
 {
@@ -22,6 +23,7 @@ namespace PetService.UI
         {
             InitializeComponent();
             UtilForm.desk = this;
+            UserControlUtil.desk = this;
             tabUtil = new TabControlUtil(this);
         }
 

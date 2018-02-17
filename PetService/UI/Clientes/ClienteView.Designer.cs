@@ -44,6 +44,7 @@
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.tfDataNascimento = new DevExpress.XtraEditors.DateEdit();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.tfDataEmissaoRg = new DevExpress.XtraEditors.DateEdit();
             this.tfRG = new DevExpress.XtraEditors.TextEdit();
             this.tfCPF = new DevExpress.XtraEditors.TextEdit();
@@ -66,6 +67,7 @@
             this.coltelefone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfala_com = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRemoverContato = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddContato = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -76,8 +78,8 @@
             this.colbairro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcomplemento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRemoverEndereco = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddEndereco = new DevExpress.XtraEditors.SimpleButton();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -90,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataNascimento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataNascimento.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataEmissaoRg.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataEmissaoRg.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfRG.Properties)).BeginInit();
@@ -112,7 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -123,7 +125,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 437);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(941, 43);
-            this.panelControl1.TabIndex = 0;
+            this.panelControl1.TabIndex = 3;
             // 
             // btnSalvar
             // 
@@ -137,7 +139,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(710, 5);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(110, 33);
-            this.btnSalvar.TabIndex = 1;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -154,7 +156,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(826, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 33);
-            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -183,7 +185,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(941, 228);
-            this.groupControl1.TabIndex = 1;
+            this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Informações Gerais";
             // 
             // groupControl4
@@ -212,6 +214,7 @@
             this.textEdit4.Properties.ReadOnly = true;
             this.textEdit4.Size = new System.Drawing.Size(100, 20);
             this.textEdit4.TabIndex = 1;
+            this.textEdit4.TabStop = false;
             // 
             // labelControl12
             // 
@@ -230,6 +233,7 @@
             this.textEdit2.Properties.ReadOnly = true;
             this.textEdit2.Size = new System.Drawing.Size(100, 20);
             this.textEdit2.TabIndex = 1;
+            this.textEdit2.TabStop = false;
             // 
             // textEdit3
             // 
@@ -240,6 +244,7 @@
             this.textEdit3.Properties.ReadOnly = true;
             this.textEdit3.Size = new System.Drawing.Size(100, 20);
             this.textEdit3.TabIndex = 1;
+            this.textEdit3.TabStop = false;
             // 
             // labelControl10
             // 
@@ -266,6 +271,7 @@
             this.textEdit1.Properties.ReadOnly = true;
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
             this.textEdit1.TabIndex = 1;
+            this.textEdit1.TabStop = false;
             // 
             // labelControl9
             // 
@@ -287,13 +293,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataNascimento.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.tfDataNascimento.Size = new System.Drawing.Size(108, 20);
-            this.tfDataNascimento.TabIndex = 3;
+            this.tfDataNascimento.TabIndex = 5;
+            // 
+            // bdgCliente
+            // 
+            this.bdgCliente.DataSource = typeof(PetService.cliente);
             // 
             // tfDataEmissaoRg
             // 
             this.tfDataEmissaoRg.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "data_emissao_rg", true));
             this.tfDataEmissaoRg.EditValue = null;
-            this.tfDataEmissaoRg.Location = new System.Drawing.Point(533, 76);
+            this.tfDataEmissaoRg.Location = new System.Drawing.Point(537, 76);
             this.tfDataEmissaoRg.Name = "tfDataEmissaoRg";
             this.tfDataEmissaoRg.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -301,7 +311,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataEmissaoRg.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.tfDataEmissaoRg.Size = new System.Drawing.Size(100, 20);
-            this.tfDataEmissaoRg.TabIndex = 3;
+            this.tfDataEmissaoRg.TabIndex = 4;
             // 
             // tfRG
             // 
@@ -321,7 +331,7 @@
             this.tfCPF.Properties.Mask.EditMask = "000.000.000-00";
             this.tfCPF.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCPF.Size = new System.Drawing.Size(163, 20);
-            this.tfCPF.TabIndex = 2;
+            this.tfCPF.TabIndex = 1;
             // 
             // labelControl4
             // 
@@ -334,12 +344,12 @@
             // tfOrgaoExpedidor
             // 
             this.tfOrgaoExpedidor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "orgao_expedidor_rg", true));
-            this.tfOrgaoExpedidor.Location = new System.Drawing.Point(356, 76);
+            this.tfOrgaoExpedidor.Location = new System.Drawing.Point(358, 76);
             this.tfOrgaoExpedidor.Name = "tfOrgaoExpedidor";
             this.tfOrgaoExpedidor.Properties.Mask.EditMask = "[A-Z]*/[A-Z]{2}";
             this.tfOrgaoExpedidor.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfOrgaoExpedidor.Size = new System.Drawing.Size(82, 20);
-            this.tfOrgaoExpedidor.TabIndex = 2;
+            this.tfOrgaoExpedidor.TabIndex = 3;
             // 
             // tfEmail
             // 
@@ -349,7 +359,7 @@
             this.tfEmail.Properties.Mask.EditMask = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}";
             this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmail.Size = new System.Drawing.Size(485, 20);
-            this.tfEmail.TabIndex = 2;
+            this.tfEmail.TabIndex = 6;
             // 
             // tfNome
             // 
@@ -358,7 +368,7 @@
             this.tfNome.Name = "tfNome";
             this.tfNome.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNome.Size = new System.Drawing.Size(708, 20);
-            this.tfNome.TabIndex = 2;
+            this.tfNome.TabIndex = 0;
             // 
             // labelControl7
             // 
@@ -378,7 +388,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(444, 79);
+            this.labelControl6.Location = new System.Drawing.Point(448, 79);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(83, 13);
             this.labelControl6.TabIndex = 0;
@@ -386,7 +396,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(265, 79);
+            this.labelControl5.Location = new System.Drawing.Point(267, 79);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(85, 13);
             this.labelControl5.TabIndex = 0;
@@ -431,9 +441,9 @@
             this.groupControl2.Controls.Add(this.gridControl2);
             this.groupControl2.Controls.Add(this.panelControl3);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupControl2.Location = new System.Drawing.Point(622, 228);
+            this.groupControl2.Location = new System.Drawing.Point(621, 228);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(319, 209);
+            this.groupControl2.Size = new System.Drawing.Size(320, 209);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Contatos";
             // 
@@ -444,8 +454,9 @@
             this.gridControl2.Location = new System.Drawing.Point(2, 21);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(315, 148);
+            this.gridControl2.Size = new System.Drawing.Size(316, 148);
             this.gridControl2.TabIndex = 2;
+            this.gridControl2.TabStop = false;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
@@ -470,7 +481,7 @@
             this.coltelefone.OptionsColumn.AllowEdit = false;
             this.coltelefone.Visible = true;
             this.coltelefone.VisibleIndex = 0;
-            this.coltelefone.Width = 116;
+            this.coltelefone.Width = 106;
             // 
             // colfala_com
             // 
@@ -480,16 +491,29 @@
             this.colfala_com.OptionsColumn.AllowEdit = false;
             this.colfala_com.Visible = true;
             this.colfala_com.VisibleIndex = 1;
-            this.colfala_com.Width = 166;
+            this.colfala_com.Width = 194;
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btnRemoverContato);
             this.panelControl3.Controls.Add(this.btnAddContato);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl3.Location = new System.Drawing.Point(2, 169);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(315, 38);
-            this.panelControl3.TabIndex = 1;
+            this.panelControl3.Size = new System.Drawing.Size(316, 38);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // btnRemoverContato
+            // 
+            this.btnRemoverContato.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnRemoverContato.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverContato.Image")));
+            this.btnRemoverContato.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRemoverContato.Location = new System.Drawing.Point(5, 8);
+            this.btnRemoverContato.Name = "btnRemoverContato";
+            this.btnRemoverContato.Size = new System.Drawing.Size(28, 23);
+            this.btnRemoverContato.TabIndex = 1;
+            this.btnRemoverContato.TabStop = false;
+            this.btnRemoverContato.Click += new System.EventHandler(this.btnRemoverContato_Click);
             // 
             // btnAddContato
             // 
@@ -498,11 +522,12 @@
             this.btnAddContato.Appearance.Options.UseFont = true;
             this.btnAddContato.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAddContato.Image = ((System.Drawing.Image)(resources.GetObject("btnAddContato.Image")));
-            this.btnAddContato.Location = new System.Drawing.Point(199, 8);
+            this.btnAddContato.Location = new System.Drawing.Point(200, 8);
             this.btnAddContato.Name = "btnAddContato";
             this.btnAddContato.Size = new System.Drawing.Size(113, 23);
             this.btnAddContato.TabIndex = 0;
             this.btnAddContato.Text = "Add Contato";
+            this.btnAddContato.Click += new System.EventHandler(this.btnAddContato_Click);
             // 
             // groupControl3
             // 
@@ -511,8 +536,8 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(0, 228);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(622, 209);
-            this.groupControl3.TabIndex = 3;
+            this.groupControl3.Size = new System.Drawing.Size(621, 209);
+            this.groupControl3.TabIndex = 1;
             this.groupControl3.Text = "Endereços";
             // 
             // gridControl1
@@ -522,8 +547,9 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(618, 148);
+            this.gridControl1.Size = new System.Drawing.Size(617, 148);
             this.gridControl1.TabIndex = 1;
+            this.gridControl1.TabStop = false;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -550,7 +576,7 @@
             this.colendereco.OptionsColumn.AllowEdit = false;
             this.colendereco.Visible = true;
             this.colendereco.VisibleIndex = 0;
-            this.colendereco.Width = 221;
+            this.colendereco.Width = 215;
             // 
             // colendereco_numero
             // 
@@ -560,7 +586,7 @@
             this.colendereco_numero.OptionsColumn.AllowEdit = false;
             this.colendereco_numero.Visible = true;
             this.colendereco_numero.VisibleIndex = 1;
-            this.colendereco_numero.Width = 102;
+            this.colendereco_numero.Width = 74;
             // 
             // colbairro
             // 
@@ -570,7 +596,7 @@
             this.colbairro.OptionsColumn.AllowEdit = false;
             this.colbairro.Visible = true;
             this.colbairro.VisibleIndex = 2;
-            this.colbairro.Width = 153;
+            this.colbairro.Width = 152;
             // 
             // colcomplemento
             // 
@@ -580,16 +606,29 @@
             this.colcomplemento.OptionsColumn.AllowEdit = false;
             this.colcomplemento.Visible = true;
             this.colcomplemento.VisibleIndex = 3;
-            this.colcomplemento.Width = 141;
+            this.colcomplemento.Width = 160;
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnRemoverEndereco);
             this.panelControl2.Controls.Add(this.btnAddEndereco);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl2.Location = new System.Drawing.Point(2, 169);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(618, 38);
+            this.panelControl2.Size = new System.Drawing.Size(617, 38);
             this.panelControl2.TabIndex = 0;
+            // 
+            // btnRemoverEndereco
+            // 
+            this.btnRemoverEndereco.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnRemoverEndereco.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverEndereco.Image")));
+            this.btnRemoverEndereco.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRemoverEndereco.Location = new System.Drawing.Point(7, 8);
+            this.btnRemoverEndereco.Name = "btnRemoverEndereco";
+            this.btnRemoverEndereco.Size = new System.Drawing.Size(28, 23);
+            this.btnRemoverEndereco.TabIndex = 1;
+            this.btnRemoverEndereco.TabStop = false;
+            this.btnRemoverEndereco.Click += new System.EventHandler(this.btnRemoverEndereco_Click);
             // 
             // btnAddEndereco
             // 
@@ -598,15 +637,12 @@
             this.btnAddEndereco.Appearance.Options.UseFont = true;
             this.btnAddEndereco.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAddEndereco.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEndereco.Image")));
-            this.btnAddEndereco.Location = new System.Drawing.Point(500, 8);
+            this.btnAddEndereco.Location = new System.Drawing.Point(499, 8);
             this.btnAddEndereco.Name = "btnAddEndereco";
             this.btnAddEndereco.Size = new System.Drawing.Size(113, 23);
             this.btnAddEndereco.TabIndex = 0;
             this.btnAddEndereco.Text = "Add Endereço";
-            // 
-            // bdgCliente
-            // 
-            this.bdgCliente.DataSource = typeof(PetService.cliente);
+            this.btnAddEndereco.Click += new System.EventHandler(this.btnAddEndereco_Click);
             // 
             // ClienteView
             // 
@@ -632,6 +668,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataNascimento.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataNascimento.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataEmissaoRg.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataEmissaoRg.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfRG.Properties)).EndInit();
@@ -654,7 +691,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -691,8 +727,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton btnAddContato;
         private DevExpress.XtraEditors.SimpleButton btnAddEndereco;
-        private System.Windows.Forms.BindingSource bdgEnderecos;
-        private System.Windows.Forms.BindingSource bdgContatos;
         private System.Windows.Forms.BindingSource bdgCliente;
         private DevExpress.XtraGrid.Columns.GridColumn coltelefone;
         private DevExpress.XtraGrid.Columns.GridColumn colfala_com;
@@ -709,5 +743,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private System.Windows.Forms.BindingSource bdgContatos;
+        private System.Windows.Forms.BindingSource bdgEnderecos;
+        private DevExpress.XtraEditors.SimpleButton btnRemoverContato;
+        private DevExpress.XtraEditors.SimpleButton btnRemoverEndereco;
     }
 }

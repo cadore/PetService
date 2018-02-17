@@ -84,6 +84,18 @@
     <Compile Include="UI\Clientes\ClienteView.Designer.cs">
       <DependentUpon>ClienteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Clientes\Contatos\NovoContatoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Clientes\Contatos\NovoContatoForm.Designer.cs">
+      <DependentUpon>NovoContatoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Clientes\Enderecos\NovoEnderecoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Clientes\Enderecos\NovoEnderecoForm.Designer.cs">
+      <DependentUpon>NovoEnderecoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DesktopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,12 @@
     </Compile>
     <EmbeddedResource Include="UI\Clientes\ClienteView.resx">
       <DependentUpon>ClienteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Clientes\Contatos\NovoContatoForm.resx">
+      <DependentUpon>NovoContatoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Clientes\Enderecos\NovoEnderecoForm.resx">
+      <DependentUpon>NovoEnderecoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DesktopForm.resx">
       <DependentUpon>DesktopForm.cs</DependentUpon>
