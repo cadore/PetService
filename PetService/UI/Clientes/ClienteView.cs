@@ -23,6 +23,12 @@ namespace PetService.UI.Clientes
                 IsNew = true;
                 c = new cliente();
                 bdgContatos.DataSource = new List<clientes_contato>();
+                bdgEnderecos.DataSource = new List<clientes_endereco>();
+            }
+            else
+            {
+                bdgContatos.DataSource = clientes_contato.Fetch("WHERE cliente_id=@0 ORDER BY id", c.id);
+                bdgEnderecos.DataSource = clientes_endereco.Fetch("WHERE cliente_id=@0 ORDER BY id", c.id);
             }
             bdgCliente.DataSource = c;
         }
@@ -59,6 +65,12 @@ namespace PetService.UI.Clientes
         {
             if (bdgContatos.Current != null)
             {
+                DialogResult rs = XtraMessageBox.Show("Deseja realmente excluir o contato selecionado?" +
+                "\nNão sera possivel reverter esta ação.", "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.No)
+                    return;
+
                 clientes_contato p = (clientes_contato)bdgContatos.Current;
                 if (p.id > 0)
                     clientes_contato.Delete(p.id);
@@ -77,7 +89,7 @@ namespace PetService.UI.Clientes
                     {
                         if (ce.endereco == nef.Endereco.endereco)
                         {
-                            XtraMessageBox.Show(String.Format("O Endereço {0} ja esta na lista do cliente atual", ce.endereco),
+                            XtraMessageBox.Show(String.Format("O endereço {0} ja esta na lista do cliente atual", ce.endereco),
                                 "Atenção");
                             return;
                         }
@@ -90,12 +102,56 @@ namespace PetService.UI.Clientes
 
         private void btnRemoverEndereco_Click(object sender, EventArgs e)
         {
-            if (bdgEnderecos.Current != null)
+           if (bdgEnderecos.Current != null)
             {
-                clientes_endereco p = (clientes_endereco)bdgEnderecos.Current;
+                DialogResult rs = XtraMessageBox.Show("Deseja realmente excluir este endereço?" +
+                 "\nNão sera possivel reverter esta ação.", "Confirmação de Exclusão",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.No)
+                    return;
+
+                clientes_endereco p = (clientes_endereco)bdgEnderecos.Current ;
                 if (p.id > 0)
                     clientes_endereco.Delete(p.id);
                 bdgEnderecos.RemoveCurrent();
+            }
+        }
+
+        DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRuleDataEmissaoRG = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+        DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRuleOrgaoExpedidor = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            cliente c = (cliente)bdgCliente.Current;
+            c.pre_cadastro = false;
+
+            if (!String.IsNullOrEmpty(c.rg))
+            {
+                conditionValidationRuleDataEmissaoRG.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+                conditionValidationRuleDataEmissaoRG.ErrorText = "Informe a data de emissão do RG";
+                this.ValidadorPrincipal.SetValidationRule(this.tfDataEmissaoRg, conditionValidationRuleDataEmissaoRG);
+
+                conditionValidationRuleOrgaoExpedidor.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+                conditionValidationRuleOrgaoExpedidor.ErrorText = "Informe o orgão expedidor do RG";
+                this.ValidadorPrincipal.SetValidationRule(this.tfOrgaoExpedidor, conditionValidationRuleOrgaoExpedidor);
+            }
+            else
+            {
+                this.ValidadorPrincipal.SetValidationRule(tfDataEmissaoRg, null);
+                this.ValidadorPrincipal.SetValidationRule(tfOrgaoExpedidor, null);
+            }
+            if (!ValidadorPrincipal.Validate())
+                return;
+
+            if (bdgContatos.List.Count < 1)
+            {
+                XtraMessageBox.Show("É necessário informar no minimo um contato para o cliente!", "Atenção");
+                return;
+            }
+            if (bdgEnderecos.List.Count < 1)
+            {
+                XtraMessageBox.Show("É necessário informar no minimo um endereço para o cliente!", "Atenção");
+                return;
             }
         }
     }

@@ -17,7 +17,8 @@ namespace PetService.UI.Clientes.Enderecos
         public NovoEnderecoForm()
         {
             InitializeComponent();
-            bdgEnderecos.DataSource = new clientes_endereco() { cidade = "LUCAS DO RIO VERDE", estado = "MT - MATO GROSSO" };
+            bdgBairros.DataSource = bairro.Fetch("ORDER BY nome");
+            bdgEnderecos.DataSource = new clientes_endereco() { bairro = null, cidade = "LUCAS DO RIO VERDE", estado = "MT - MATO GROSSO" };
             tfEndereco.Focus();
         }
 
@@ -34,6 +35,14 @@ namespace PetService.UI.Clientes.Enderecos
             Endereco = (clientes_endereco)bdgEnderecos.Current;
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void NovoEnderecoForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSalvar_Click(sender, e);
+            if (e.KeyCode == Keys.Escape)
+                btnCancelar_Click(sender, e);
         }
     }
 }

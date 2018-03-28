@@ -32,48 +32,37 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovoContatoForm));
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tfFalaCom = new DevExpress.XtraEditors.TextEdit();
             this.bdgContato = new System.Windows.Forms.BindingSource(this.components);
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tfContato = new DevExpress.XtraEditors.TextEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancelar = new WCButtons.Black.ButtonCancelBlack();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFalaCom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgContato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfContato.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.tfFalaCom);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.tfContato);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(498, 116);
-            this.panelControl1.TabIndex = 0;
             // 
             // tfFalaCom
             // 
             this.tfFalaCom.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgContato, "fala_com", true));
             this.tfFalaCom.EditValue = "";
-            this.tfFalaCom.Location = new System.Drawing.Point(71, 38);
+            this.tfFalaCom.Location = new System.Drawing.Point(66, 27);
             this.tfFalaCom.Name = "tfFalaCom";
             this.tfFalaCom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfFalaCom.Size = new System.Drawing.Size(415, 20);
-            this.tfFalaCom.TabIndex = 2;
+            this.tfFalaCom.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Informe o nome do contato";
             this.validator.SetValidationRule(this.tfFalaCom, conditionValidationRule1);
@@ -82,45 +71,73 @@
             // 
             this.bdgContato.DataSource = typeof(PetService.clientes_contato);
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(15, 41);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(50, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Falar com:";
-            // 
             // tfContato
             // 
             this.tfContato.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgContato, "telefone", true));
             this.tfContato.EditValue = "";
-            this.tfContato.Location = new System.Drawing.Point(71, 12);
+            this.tfContato.Location = new System.Drawing.Point(66, 3);
             this.tfContato.Name = "tfContato";
             this.tfContato.Properties.Mask.EditMask = "(\\([0-9]{2}\\))([9]{1})?([0-9]{4})-([0-9]{4})";
             this.tfContato.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfContato.Size = new System.Drawing.Size(127, 20);
-            this.tfContato.TabIndex = 1;
+            this.tfContato.TabIndex = 0;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Informe um numero de telefone";
             this.validator.SetValidationRule(this.tfContato, conditionValidationRule2);
+            this.tfContato.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tfContato_KeyUp);
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.tableLayoutPanel1);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(498, 107);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.87554F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.12447F));
+            this.tableLayoutPanel1.Controls.Add(this.labelControl1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tfFalaCom, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelControl2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tfContato, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 5);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.63636F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.36364F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(491, 56);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(15, 15);
+            this.labelControl1.Location = new System.Drawing.Point(3, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(43, 13);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Contato:";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(3, 27);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(50, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Falar com:";
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.btnSalvar);
             this.panelControl2.Controls.Add(this.btnCancelar);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 70);
+            this.panelControl2.Location = new System.Drawing.Point(2, 61);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(494, 44);
-            this.panelControl2.TabIndex = 0;
+            this.panelControl2.TabIndex = 2;
             // 
             // btnSalvar
             // 
@@ -162,19 +179,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 116);
+            this.ClientSize = new System.Drawing.Size(498, 107);
             this.Controls.Add(this.panelControl1);
             this.Name = "NovoContatoForm";
             this.Text = "Contato";
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NovoContatoForm_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFalaCom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgContato)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfContato.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +210,6 @@
         private WCButtons.Black.ButtonCancelBlack btnCancelar;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private System.Windows.Forms.BindingSource bdgContato;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -14,6 +14,8 @@ namespace PetService.UI
     public partial class UtilForm : DevExpress.XtraEditors.XtraForm
     {
         public static DesktopForm desk = null;
+
+        protected bool IsNew;
         public UtilForm()
         {
             InitializeComponent();

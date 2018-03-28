@@ -13,6 +13,7 @@ using DevExpress.XtraEditors;
 using PetService.Utils;
 using PetService.UI.Clientes;
 using PetService.UI.Utils;
+using PetService.UI.Enderecos.Bairros;
 
 namespace PetService.UI
 {
@@ -78,6 +79,18 @@ namespace PetService.UI
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (rs == DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void btn_cadastro_rapido_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CadastroRapidoCliente crc = new CadastroRapidoCliente();
+            crc.ShowDialog();
+        }
+
+        private void btn_bairros_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BairrosForm bf = new BairrosForm();
+            bf.ShowDialog();
         }
     }
 }

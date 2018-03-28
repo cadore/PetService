@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace PetService.UI.Pets.Racas
+namespace PetService.UI.Enderecos.Bairros
 {
-    public partial class NovaRacaForm : UtilForm
+    public partial class NovoBairro : UtilForm
     {
-        public NovaRacaForm(raca r)
+        public NovoBairro(bairro b)
         {
             InitializeComponent();
-            if (r == null)
-            {
-                r = new raca() { tipo_raca = 2 };
-            }
-            else
-                this.Text = "Editar raça";
-
-            bdgRaca.DataSource = r;
+            if (b == null)
+                b = new bairro() { taxa_entrega = 0 };
+            bdgBairro.DataSource = b;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -32,20 +27,19 @@ namespace PetService.UI.Pets.Racas
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (!validator.Validate())
                 return;
-
             try
             {
-                raca r = (raca)bdgRaca.Current;
-                r.Save();
-                XtraMessageBox.Show("Raça salva com sucesso!");
+                bairro b = (bairro)bdgBairro.Current;
+                b.Save();
+                XtraMessageBox.Show("Bairro salvo com sucesso!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Erro/Atenção");
                 this.DialogResult = DialogResult.Cancel;

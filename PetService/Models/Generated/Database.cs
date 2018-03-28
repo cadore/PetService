@@ -288,7 +288,8 @@ namespace PetService
 
 
 
-		[Column] public string descricao_servico { get; set; }
+        [Column]
+        public string observacao_servico { get; set; }
 
 
 
@@ -331,6 +332,12 @@ namespace PetService
 
 
 		[Column] public bool recebido { get; set; }
+
+        [Column] public int turno_servico { get; set; }
+
+        [Column] public int em_execucao { get; set; }
+
+        public string descricao_servico { get; set; }
 
 
 
@@ -894,7 +901,7 @@ namespace PetService
 
 
 
-		[Column] public string turno_servico { get; set; }
+		[Column] public int turno_servico { get; set; }
 
 
 
@@ -1030,6 +1037,7 @@ namespace PetService
 
 
 		[Column] public string fala_com { get; set; }
+        [Column] public bool principal { get; set; }
 
 
 
@@ -1077,7 +1085,7 @@ namespace PetService
 
 
 
-		[Column] public string bairro { get; set; }
+		[Column] public long? bairro { get; set; }
 
 
 
@@ -1086,11 +1094,39 @@ namespace PetService
 		[Column] public string complemento { get; set; }
         [Column] public string cidade { get; set; }
         [Column] public string estado { get; set; }
-        [Column] public Boolean principal { get; set; }
+        [Column] public bool principal { get; set; }
 
 
 
 	}
+    
+    [TableName("public.bairros")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
 
+    public partial class bairro : PetRepo.Record<bairro>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public string nome { get; set; }
+        [Column]
+        public decimal taxa_entrega { get; set; }
 
+    }
+
+    public partial class ServicosDiariosModal
+    {
+        public string turno_servico { get; set; }
+        public bool em_execucao { get; set; }
+        public string cliente { get; set; }
+        public long cliente_id { get; set; }
+        public string pet { get; set; }
+        public long pet_id { get; set; }
+        public string porte { get; set; }
+        public string endereco { get; set; }
+        public string bairro { get; set; }
+        public bool taxi_dog { get; set; }
+
+    }
 }

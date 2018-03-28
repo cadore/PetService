@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteView));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancelar = new WCButtons.Black.ButtonCancelBlack();
@@ -80,6 +84,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnRemoverEndereco = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddEndereco = new DevExpress.XtraEditors.SimpleButton();
+            this.ValidadorPrincipal = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -115,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidadorPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -143,6 +149,7 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -264,6 +271,7 @@
             // 
             // textEdit1
             // 
+            this.textEdit1.EditValue = "";
             this.textEdit1.Location = new System.Drawing.Point(91, 30);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Mask.EditMask = "00/00/0000";
@@ -292,8 +300,11 @@
             this.tfDataNascimento.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataNascimento.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.tfDataNascimento.Size = new System.Drawing.Size(108, 20);
+            this.tfDataNascimento.Size = new System.Drawing.Size(119, 20);
             this.tfDataNascimento.TabIndex = 5;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe a data de Nascimento";
+            this.ValidadorPrincipal.SetValidationRule(this.tfDataNascimento, conditionValidationRule1);
             // 
             // bdgCliente
             // 
@@ -319,6 +330,8 @@
             this.tfRG.EditValue = "";
             this.tfRG.Location = new System.Drawing.Point(96, 76);
             this.tfRG.Name = "tfRG";
+            this.tfRG.Properties.Mask.EditMask = "[0-9]*";
+            this.tfRG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfRG.Size = new System.Drawing.Size(163, 20);
             this.tfRG.TabIndex = 2;
             // 
@@ -332,6 +345,9 @@
             this.tfCPF.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCPF.Size = new System.Drawing.Size(163, 20);
             this.tfCPF.TabIndex = 1;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "CPF é obrigatório";
+            this.ValidadorPrincipal.SetValidationRule(this.tfCPF, conditionValidationRule2);
             // 
             // labelControl4
             // 
@@ -358,8 +374,11 @@
             this.tfEmail.Name = "tfEmail";
             this.tfEmail.Properties.Mask.EditMask = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}";
             this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfEmail.Size = new System.Drawing.Size(485, 20);
+            this.tfEmail.Size = new System.Drawing.Size(541, 20);
             this.tfEmail.TabIndex = 6;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o email";
+            this.ValidadorPrincipal.SetValidationRule(this.tfEmail, conditionValidationRule3);
             // 
             // tfNome
             // 
@@ -369,6 +388,9 @@
             this.tfNome.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNome.Size = new System.Drawing.Size(708, 20);
             this.tfNome.TabIndex = 0;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe o Nome do cliente";
+            this.ValidadorPrincipal.SetValidationRule(this.tfNome, conditionValidationRule4);
             // 
             // labelControl7
             // 
@@ -463,6 +485,7 @@
             // bdgContatos
             // 
             this.bdgContatos.DataSource = typeof(PetService.clientes_contato);
+            this.bdgContatos.Sort = "";
             // 
             // gridView2
             // 
@@ -472,6 +495,8 @@
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colfala_com, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // coltelefone
             // 
@@ -489,6 +514,7 @@
             this.colfala_com.FieldName = "fala_com";
             this.colfala_com.Name = "colfala_com";
             this.colfala_com.OptionsColumn.AllowEdit = false;
+            this.colfala_com.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
             this.colfala_com.Visible = true;
             this.colfala_com.VisibleIndex = 1;
             this.colfala_com.Width = 194;
@@ -691,6 +717,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ValidadorPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -747,5 +774,6 @@
         private System.Windows.Forms.BindingSource bdgEnderecos;
         private DevExpress.XtraEditors.SimpleButton btnRemoverContato;
         private DevExpress.XtraEditors.SimpleButton btnRemoverEndereco;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider ValidadorPrincipal;
     }
 }

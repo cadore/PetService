@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PetService.Utils;
 
 namespace PetService.UI.Clientes.Contatos
 {
@@ -35,6 +36,24 @@ namespace PetService.UI.Clientes.Contatos
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void NovoContatoForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSalvar_Click(sender, e);
+            if (e.KeyCode == Keys.Escape)
+                btnCancelar_Click(sender, e);
+        }
+
+        private void tfContato_KeyUp(object sender, KeyEventArgs e)
+        {
+            string cpf = Util.RemoveSpecialCharacters(tfContato.EditValue.ToString());
+            if (cpf.Length == 11)
+            {
+                tfFalaCom.Focus();
+                tfFalaCom.SelectAll();
+            }
         }
     }
 }

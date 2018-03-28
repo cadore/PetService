@@ -34,6 +34,7 @@
             this.btn_novo_pet = new DevExpress.XtraBars.BarButtonItem();
             this.btn_pesquisar_pet = new DevExpress.XtraBars.BarButtonItem();
             this.btn_racas = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_cadastro_rapido = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -43,6 +44,8 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btn_bairros = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -56,9 +59,11 @@
             this.btn_pesquisar_cliente,
             this.btn_novo_pet,
             this.btn_pesquisar_pet,
-            this.btn_racas});
+            this.btn_racas,
+            this.btn_cadastro_rapido,
+            this.btn_bairros});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage4,
@@ -107,6 +112,13 @@
             this.btn_racas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btn_racas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_racas_ItemClick);
             // 
+            // btn_cadastro_rapido
+            // 
+            this.btn_cadastro_rapido.Caption = "Cadastro Rápido";
+            this.btn_cadastro_rapido.Id = 6;
+            this.btn_cadastro_rapido.Name = "btn_cadastro_rapido";
+            this.btn_cadastro_rapido.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_cadastro_rapido_ItemClick);
+            // 
             // ribbonPage4
             // 
             this.ribbonPage4.Name = "ribbonPage4";
@@ -117,7 +129,8 @@
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Cadastros";
             // 
@@ -126,6 +139,7 @@
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_novo_cliente);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_pesquisar_cliente);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btn_cadastro_rapido);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Clientes";
@@ -174,6 +188,22 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.AllowTextClipping = false;
+            this.ribbonPageGroup4.ItemLinks.Add(this.btn_bairros);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
+            this.ribbonPageGroup4.Text = "Endereços";
+            // 
+            // btn_bairros
+            // 
+            this.btn_bairros.Caption = "Gerenciar Bairros";
+            this.btn_bairros.Id = 7;
+            this.btn_bairros.Name = "btn_bairros";
+            this.btn_bairros.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btn_bairros.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_bairros_ItemClick);
+            // 
             // DesktopForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -213,5 +243,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         public DevExpress.XtraTab.XtraTabControl tabControl;
+        private DevExpress.XtraBars.BarButtonItem btn_cadastro_rapido;
+        private DevExpress.XtraBars.BarButtonItem btn_bairros;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }
