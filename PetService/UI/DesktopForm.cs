@@ -14,6 +14,8 @@ using PetService.Utils;
 using PetService.UI.Clientes;
 using PetService.UI.Utils;
 using PetService.UI.Enderecos.Bairros;
+using System.Reflection;
+using PetaPoco;
 
 namespace PetService.UI
 {
@@ -91,6 +93,13 @@ namespace PetService.UI
         {
             BairrosForm bf = new BairrosForm();
             bf.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var poco = PocoData.ForObject(new cliente(), "id", cliente.repo.DefaultMapper);
+            Console.WriteLine(poco.TableInfo.TableName);
+            Console.WriteLine(poco.Columns.Values);
         }
     }
 }

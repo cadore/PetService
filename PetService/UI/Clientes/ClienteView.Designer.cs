@@ -33,7 +33,6 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancelar = new WCButtons.Black.ButtonCancelBlack();
@@ -70,7 +69,10 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coltelefone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfala_com = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprincipal2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnContatoPrincipal = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemoverContato = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddContato = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
@@ -81,10 +83,13 @@
             this.colendereco_numero = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colbairro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcomplemento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colprincipal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnEnderecoPrincipal = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemoverEndereco = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddEndereco = new DevExpress.XtraEditors.SimpleButton();
             this.ValidadorPrincipal = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.ValidadorUnique = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -111,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgContatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -121,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ValidadorPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidadorUnique)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -345,9 +352,6 @@
             this.tfCPF.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCPF.Size = new System.Drawing.Size(163, 20);
             this.tfCPF.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "CPF é obrigatório";
-            this.ValidadorPrincipal.SetValidationRule(this.tfCPF, conditionValidationRule2);
             // 
             // labelControl4
             // 
@@ -376,9 +380,9 @@
             this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmail.Size = new System.Drawing.Size(541, 20);
             this.tfEmail.TabIndex = 6;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o email";
-            this.ValidadorPrincipal.SetValidationRule(this.tfEmail, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe o email";
+            this.ValidadorPrincipal.SetValidationRule(this.tfEmail, conditionValidationRule2);
             // 
             // tfNome
             // 
@@ -388,9 +392,9 @@
             this.tfNome.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNome.Size = new System.Drawing.Size(708, 20);
             this.tfNome.TabIndex = 0;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe o Nome do cliente";
-            this.ValidadorPrincipal.SetValidationRule(this.tfNome, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o Nome do cliente";
+            this.ValidadorPrincipal.SetValidationRule(this.tfNome, conditionValidationRule3);
             // 
             // labelControl7
             // 
@@ -476,6 +480,8 @@
             this.gridControl2.Location = new System.Drawing.Point(2, 21);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit1});
             this.gridControl2.Size = new System.Drawing.Size(316, 148);
             this.gridControl2.TabIndex = 2;
             this.gridControl2.TabStop = false;
@@ -486,12 +492,14 @@
             // 
             this.bdgContatos.DataSource = typeof(PetService.clientes_contato);
             this.bdgContatos.Sort = "";
+            this.bdgContatos.CurrentChanged += new System.EventHandler(this.bdgContatos_CurrentChanged);
             // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.coltelefone,
-            this.colfala_com});
+            this.colfala_com,
+            this.colprincipal2});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowGroupPanel = false;
@@ -506,7 +514,7 @@
             this.coltelefone.OptionsColumn.AllowEdit = false;
             this.coltelefone.Visible = true;
             this.coltelefone.VisibleIndex = 0;
-            this.coltelefone.Width = 106;
+            this.coltelefone.Width = 96;
             // 
             // colfala_com
             // 
@@ -517,10 +525,27 @@
             this.colfala_com.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
             this.colfala_com.Visible = true;
             this.colfala_com.VisibleIndex = 1;
-            this.colfala_com.Width = 194;
+            this.colfala_com.Width = 156;
+            // 
+            // colprincipal2
+            // 
+            this.colprincipal2.Caption = "Principal";
+            this.colprincipal2.FieldName = "principal";
+            this.colprincipal2.Name = "colprincipal2";
+            this.colprincipal2.OptionsColumn.AllowEdit = false;
+            this.colprincipal2.Visible = true;
+            this.colprincipal2.VisibleIndex = 2;
+            this.colprincipal2.Width = 48;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Caption = "Check";
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btnContatoPrincipal);
             this.panelControl3.Controls.Add(this.btnRemoverContato);
             this.panelControl3.Controls.Add(this.btnAddContato);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -529,9 +554,23 @@
             this.panelControl3.Size = new System.Drawing.Size(316, 38);
             this.panelControl3.TabIndex = 0;
             // 
+            // btnContatoPrincipal
+            // 
+            this.btnContatoPrincipal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnContatoPrincipal.Enabled = false;
+            this.btnContatoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("btnContatoPrincipal.Image")));
+            this.btnContatoPrincipal.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnContatoPrincipal.Location = new System.Drawing.Point(87, 8);
+            this.btnContatoPrincipal.Name = "btnContatoPrincipal";
+            this.btnContatoPrincipal.Size = new System.Drawing.Size(110, 23);
+            this.btnContatoPrincipal.TabIndex = 2;
+            this.btnContatoPrincipal.Text = "Tornar Principal";
+            this.btnContatoPrincipal.Click += new System.EventHandler(this.btnContatoPrincipal_Click);
+            // 
             // btnRemoverContato
             // 
             this.btnRemoverContato.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnRemoverContato.Enabled = false;
             this.btnRemoverContato.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverContato.Image")));
             this.btnRemoverContato.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnRemoverContato.Location = new System.Drawing.Point(5, 8);
@@ -548,9 +587,9 @@
             this.btnAddContato.Appearance.Options.UseFont = true;
             this.btnAddContato.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAddContato.Image = ((System.Drawing.Image)(resources.GetObject("btnAddContato.Image")));
-            this.btnAddContato.Location = new System.Drawing.Point(200, 8);
+            this.btnAddContato.Location = new System.Drawing.Point(203, 8);
             this.btnAddContato.Name = "btnAddContato";
-            this.btnAddContato.Size = new System.Drawing.Size(113, 23);
+            this.btnAddContato.Size = new System.Drawing.Size(110, 23);
             this.btnAddContato.TabIndex = 0;
             this.btnAddContato.Text = "Add Contato";
             this.btnAddContato.Click += new System.EventHandler(this.btnAddContato_Click);
@@ -582,6 +621,7 @@
             // bdgEnderecos
             // 
             this.bdgEnderecos.DataSource = typeof(PetService.clientes_endereco);
+            this.bdgEnderecos.CurrentChanged += new System.EventHandler(this.bdgEnderecos_CurrentChanged);
             // 
             // gridView1
             // 
@@ -589,7 +629,8 @@
             this.colendereco,
             this.colendereco_numero,
             this.colbairro,
-            this.colcomplemento});
+            this.colcomplemento,
+            this.colprincipal});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -602,7 +643,7 @@
             this.colendereco.OptionsColumn.AllowEdit = false;
             this.colendereco.Visible = true;
             this.colendereco.VisibleIndex = 0;
-            this.colendereco.Width = 215;
+            this.colendereco.Width = 191;
             // 
             // colendereco_numero
             // 
@@ -612,17 +653,17 @@
             this.colendereco_numero.OptionsColumn.AllowEdit = false;
             this.colendereco_numero.Visible = true;
             this.colendereco_numero.VisibleIndex = 1;
-            this.colendereco_numero.Width = 74;
+            this.colendereco_numero.Width = 65;
             // 
             // colbairro
             // 
             this.colbairro.Caption = "Bairro";
-            this.colbairro.FieldName = "bairro";
+            this.colbairro.FieldName = "bairro_descricao";
             this.colbairro.Name = "colbairro";
             this.colbairro.OptionsColumn.AllowEdit = false;
             this.colbairro.Visible = true;
             this.colbairro.VisibleIndex = 2;
-            this.colbairro.Width = 152;
+            this.colbairro.Width = 135;
             // 
             // colcomplemento
             // 
@@ -632,10 +673,21 @@
             this.colcomplemento.OptionsColumn.AllowEdit = false;
             this.colcomplemento.Visible = true;
             this.colcomplemento.VisibleIndex = 3;
-            this.colcomplemento.Width = 160;
+            this.colcomplemento.Width = 156;
+            // 
+            // colprincipal
+            // 
+            this.colprincipal.Caption = "Principal";
+            this.colprincipal.FieldName = "principal";
+            this.colprincipal.Name = "colprincipal";
+            this.colprincipal.OptionsColumn.AllowEdit = false;
+            this.colprincipal.Visible = true;
+            this.colprincipal.VisibleIndex = 4;
+            this.colprincipal.Width = 54;
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnEnderecoPrincipal);
             this.panelControl2.Controls.Add(this.btnRemoverEndereco);
             this.panelControl2.Controls.Add(this.btnAddEndereco);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -644,9 +696,23 @@
             this.panelControl2.Size = new System.Drawing.Size(617, 38);
             this.panelControl2.TabIndex = 0;
             // 
+            // btnEnderecoPrincipal
+            // 
+            this.btnEnderecoPrincipal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnEnderecoPrincipal.Enabled = false;
+            this.btnEnderecoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("btnEnderecoPrincipal.Image")));
+            this.btnEnderecoPrincipal.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnEnderecoPrincipal.Location = new System.Drawing.Point(384, 8);
+            this.btnEnderecoPrincipal.Name = "btnEnderecoPrincipal";
+            this.btnEnderecoPrincipal.Size = new System.Drawing.Size(110, 23);
+            this.btnEnderecoPrincipal.TabIndex = 2;
+            this.btnEnderecoPrincipal.Text = "Tornar Principal";
+            this.btnEnderecoPrincipal.Click += new System.EventHandler(this.btnEnderecoPrincipal_Click);
+            // 
             // btnRemoverEndereco
             // 
             this.btnRemoverEndereco.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnRemoverEndereco.Enabled = false;
             this.btnRemoverEndereco.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverEndereco.Image")));
             this.btnRemoverEndereco.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnRemoverEndereco.Location = new System.Drawing.Point(7, 8);
@@ -665,7 +731,7 @@
             this.btnAddEndereco.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEndereco.Image")));
             this.btnAddEndereco.Location = new System.Drawing.Point(499, 8);
             this.btnAddEndereco.Name = "btnAddEndereco";
-            this.btnAddEndereco.Size = new System.Drawing.Size(113, 23);
+            this.btnAddEndereco.Size = new System.Drawing.Size(110, 23);
             this.btnAddEndereco.TabIndex = 0;
             this.btnAddEndereco.Text = "Add Endereço";
             this.btnAddEndereco.Click += new System.EventHandler(this.btnAddEndereco_Click);
@@ -708,6 +774,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgContatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -718,6 +785,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ValidadorPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidadorUnique)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -775,5 +843,11 @@
         private DevExpress.XtraEditors.SimpleButton btnRemoverContato;
         private DevExpress.XtraEditors.SimpleButton btnRemoverEndereco;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider ValidadorPrincipal;
+        private DevExpress.XtraGrid.Columns.GridColumn colprincipal2;
+        private DevExpress.XtraGrid.Columns.GridColumn colprincipal;
+        private DevExpress.XtraEditors.SimpleButton btnContatoPrincipal;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnEnderecoPrincipal;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider ValidadorUnique;
     }
 }

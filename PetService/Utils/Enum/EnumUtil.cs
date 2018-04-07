@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetService
 {
-    public class Enum
+    public class EnumUtil
     {
         public enum EspeciePet
         {

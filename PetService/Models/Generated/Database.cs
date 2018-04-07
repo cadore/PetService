@@ -10,6 +10,11 @@ namespace PetService
 
 	public partial class PetRepo : Database
 	{
+        public static IMapper DefaultIMapper { get; private set; }
+        public static void LoadIMapper(IMapper _DefaultMapper)
+        {
+            DefaultIMapper = _DefaultMapper;
+        }
         public PetRepo() : base(ConnectionUtil.ConnectionString, ConnectionUtil.InvariantName)
 		{
 			CommonConstruct();
@@ -1085,7 +1090,7 @@ namespace PetService
 
 
 
-		[Column] public long? bairro { get; set; }
+		[Column] public long bairro { get; set; }
 
 
 
@@ -1095,6 +1100,8 @@ namespace PetService
         [Column] public string cidade { get; set; }
         [Column] public string estado { get; set; }
         [Column] public bool principal { get; set; }
+
+        public string bairro_descricao { get; set; }
 
 
 

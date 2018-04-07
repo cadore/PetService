@@ -90,7 +90,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.86992F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.13008F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel1.Controls.Add(this.labelControl1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tfEstado, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelControl2, 0, 1);
@@ -126,7 +126,7 @@
             // 
             this.tfEstado.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "estado", true));
             this.tfEstado.EditValue = "";
-            this.tfEstado.Location = new System.Drawing.Point(480, 113);
+            this.tfEstado.Location = new System.Drawing.Point(478, 113);
             this.tfEstado.Name = "tfEstado";
             this.tfEstado.Properties.ReadOnly = true;
             this.tfEstado.Size = new System.Drawing.Size(137, 20);
@@ -147,7 +147,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(436, 113);
+            this.labelControl6.Location = new System.Drawing.Point(434, 113);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(37, 13);
             this.labelControl6.TabIndex = 1;
@@ -164,10 +164,10 @@
             // tfCidade
             // 
             this.tfCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "cidade", true));
-            this.tfCidade.Location = new System.Drawing.Point(76, 113);
+            this.tfCidade.Location = new System.Drawing.Point(75, 113);
             this.tfCidade.Name = "tfCidade";
             this.tfCidade.Properties.ReadOnly = true;
-            this.tfCidade.Size = new System.Drawing.Size(354, 20);
+            this.tfCidade.Size = new System.Drawing.Size(353, 20);
             this.tfCidade.TabIndex = 6;
             this.tfCidade.TabStop = false;
             // 
@@ -182,10 +182,10 @@
             // tfComplemento
             // 
             this.tfComplemento.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "complemento", true));
-            this.tfComplemento.Location = new System.Drawing.Point(76, 83);
+            this.tfComplemento.Location = new System.Drawing.Point(75, 83);
             this.tfComplemento.Name = "tfComplemento";
             this.tfComplemento.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfComplemento.Size = new System.Drawing.Size(354, 20);
+            this.tfComplemento.Size = new System.Drawing.Size(353, 20);
             this.tfComplemento.TabIndex = 3;
             // 
             // labelControl5
@@ -199,10 +199,10 @@
             // tfEndereco
             // 
             this.tfEndereco.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "endereco", true));
-            this.tfEndereco.Location = new System.Drawing.Point(76, 3);
+            this.tfEndereco.Location = new System.Drawing.Point(75, 3);
             this.tfEndereco.Name = "tfEndereco";
             this.tfEndereco.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfEndereco.Size = new System.Drawing.Size(354, 20);
+            this.tfEndereco.Size = new System.Drawing.Size(353, 20);
             this.tfEndereco.TabIndex = 0;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Informe o endereço";
@@ -211,7 +211,7 @@
             // tfNumero
             // 
             this.tfNumero.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "endereco_numero", true));
-            this.tfNumero.Location = new System.Drawing.Point(76, 29);
+            this.tfNumero.Location = new System.Drawing.Point(75, 29);
             this.tfNumero.Name = "tfNumero";
             this.tfNumero.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNumero.Size = new System.Drawing.Size(110, 20);
@@ -222,8 +222,9 @@
             // 
             // cbBairro
             // 
+            this.cbBairro.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEnderecos, "bairro", true));
             this.cbBairro.EditValue = "";
-            this.cbBairro.Location = new System.Drawing.Point(76, 54);
+            this.cbBairro.Location = new System.Drawing.Point(75, 54);
             this.cbBairro.Name = "cbBairro";
             this.cbBairro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -232,7 +233,7 @@
             this.cbBairro.Properties.NullText = "Selecione o bairro";
             this.cbBairro.Properties.ValueMember = "id";
             this.cbBairro.Properties.View = this.searchLookUpEdit1View;
-            this.cbBairro.Size = new System.Drawing.Size(354, 20);
+            this.cbBairro.Size = new System.Drawing.Size(353, 20);
             this.cbBairro.TabIndex = 8;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule3.ErrorText = "Informe o bairro";

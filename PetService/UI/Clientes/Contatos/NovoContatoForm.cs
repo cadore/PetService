@@ -40,10 +40,10 @@ namespace PetService.UI.Clientes.Contatos
 
         private void NovoContatoForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            /*if (e.KeyCode == Keys.Enter)
                 btnSalvar_Click(sender, e);
             if (e.KeyCode == Keys.Escape)
-                btnCancelar_Click(sender, e);
+                btnCancelar_Click(sender, e);*/
         }
 
         private void tfContato_KeyUp(object sender, KeyEventArgs e)

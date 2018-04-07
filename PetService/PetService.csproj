@@ -156,9 +156,11 @@
     <Compile Include="UI\Utils\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Enum\Enum.cs" />
+    <Compile Include="Utils\Enum\EnumUtil.cs" />
     <Compile Include="Utils\TabControlUtil.cs" />
     <Compile Include="Utils\Util.cs" />
+    <Compile Include="Utils\Validations\ValidationsRepo.cs" />
+    <Compile Include="Utils\Validations\ValidationsUtil.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

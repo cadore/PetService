@@ -42,7 +42,6 @@
             System.Windows.Forms.Label raca_idLabel;
             System.Windows.Forms.Label porteLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroRapidoCliente));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -53,6 +52,7 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancelar = new WCButtons.Black.ButtonCancelBlack();
@@ -75,12 +75,12 @@
             this.bdgContato = new System.Windows.Forms.BindingSource(this.components);
             this.telefoneTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgEndereco = new System.Windows.Forms.BindingSource(this.components);
             this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome = new DevExpress.XtraGrid.Columns.GridColumn();
             this.complementoTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.bdgEndereco = new System.Windows.Forms.BindingSource(this.components);
             this.endereco_numeroTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.enderecoTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.cpfTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -118,10 +118,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgContato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telefoneTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbBairro.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complementoTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endereco_numeroTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enderecoTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpfTextEdit.Properties)).BeginInit();
@@ -346,10 +346,10 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(4, "Gigante")});
             this.porteRadioGroup.Size = new System.Drawing.Size(397, 27);
             this.porteRadioGroup.TabIndex = 7;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule12.ErrorText = "Informe o porte";
-            conditionValidationRule12.Value1 = 0;
-            this.validador.SetValidationRule(this.porteRadioGroup, conditionValidationRule12);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule1.ErrorText = "Informe o porte";
+            conditionValidationRule1.Value1 = 0;
+            this.validador.SetValidationRule(this.porteRadioGroup, conditionValidationRule1);
             // 
             // bdgPet
             // 
@@ -370,10 +370,10 @@
             this.cbRaca.Properties.View = this.raca_idSearchLookUpEditView;
             this.cbRaca.Size = new System.Drawing.Size(167, 20);
             this.cbRaca.TabIndex = 5;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Informe a raça";
-            conditionValidationRule1.Value1 = 0;
-            this.validador.SetValidationRule(this.cbRaca, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Informe a raça";
+            conditionValidationRule2.Value1 = 0;
+            this.validador.SetValidationRule(this.cbRaca, conditionValidationRule2);
             // 
             // bdgRacas
             // 
@@ -432,10 +432,10 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Felino")});
             this.especieRadioGroup.Size = new System.Drawing.Size(181, 27);
             this.especieRadioGroup.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule2.ErrorText = "Informe a espécie";
-            conditionValidationRule2.Value1 = 0;
-            this.validador.SetValidationRule(this.especieRadioGroup, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule3.ErrorText = "Informe a espécie";
+            conditionValidationRule3.Value1 = 0;
+            this.validador.SetValidationRule(this.especieRadioGroup, conditionValidationRule3);
             this.especieRadioGroup.SelectedIndexChanged += new System.EventHandler(this.especieRadioGroup_SelectedIndexChanged);
             // 
             // nome_petTextEdit
@@ -446,9 +446,9 @@
             this.nome_petTextEdit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.nome_petTextEdit.Size = new System.Drawing.Size(379, 20);
             this.nome_petTextEdit.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o nome do Pet";
-            this.validador.SetValidationRule(this.nome_petTextEdit, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe o nome do Pet";
+            this.validador.SetValidationRule(this.nome_petTextEdit, conditionValidationRule4);
             // 
             // groupControl1
             // 
@@ -503,9 +503,9 @@
             this.fala_comTextEdit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.fala_comTextEdit.Size = new System.Drawing.Size(468, 20);
             this.fala_comTextEdit.TabIndex = 15;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe a pessoa do contato";
-            this.validador.SetValidationRule(this.fala_comTextEdit, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe a pessoa do contato";
+            this.validador.SetValidationRule(this.fala_comTextEdit, conditionValidationRule5);
             // 
             // bdgContato
             // 
@@ -521,9 +521,9 @@
             this.telefoneTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.telefoneTextEdit.Size = new System.Drawing.Size(111, 20);
             this.telefoneTextEdit.TabIndex = 13;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe o telefone de contato";
-            this.validador.SetValidationRule(this.telefoneTextEdit, conditionValidationRule5);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe o telefone de contato";
+            this.validador.SetValidationRule(this.telefoneTextEdit, conditionValidationRule6);
             // 
             // cbBairro
             // 
@@ -540,10 +540,14 @@
             this.cbBairro.Properties.View = this.searchLookUpEdit1View;
             this.cbBairro.Size = new System.Drawing.Size(348, 20);
             this.cbBairro.TabIndex = 12;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule6.ErrorText = "Informe o bairro";
-            conditionValidationRule6.Value1 = 0;
-            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule6);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule7.ErrorText = "Informe o bairro";
+            conditionValidationRule7.Value1 = 0;
+            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule7);
+            // 
+            // bdgEndereco
+            // 
+            this.bdgEndereco.DataSource = typeof(PetService.clientes_endereco);
             // 
             // bdgBairros
             // 
@@ -588,10 +592,6 @@
             this.complementoTextEdit.Size = new System.Drawing.Size(181, 20);
             this.complementoTextEdit.TabIndex = 11;
             // 
-            // bdgEndereco
-            // 
-            this.bdgEndereco.DataSource = typeof(PetService.clientes_endereco);
-            // 
             // endereco_numeroTextEdit
             // 
             this.endereco_numeroTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEndereco, "endereco_numero", true));
@@ -599,9 +599,9 @@
             this.endereco_numeroTextEdit.Name = "endereco_numeroTextEdit";
             this.endereco_numeroTextEdit.Size = new System.Drawing.Size(181, 20);
             this.endereco_numeroTextEdit.TabIndex = 7;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe o numero do endereço";
-            this.validador.SetValidationRule(this.endereco_numeroTextEdit, conditionValidationRule7);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe o numero do endereço";
+            this.validador.SetValidationRule(this.endereco_numeroTextEdit, conditionValidationRule8);
             // 
             // enderecoTextEdit
             // 
@@ -611,9 +611,9 @@
             this.enderecoTextEdit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.enderecoTextEdit.Size = new System.Drawing.Size(379, 20);
             this.enderecoTextEdit.TabIndex = 5;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe o Endereço";
-            this.validador.SetValidationRule(this.enderecoTextEdit, conditionValidationRule8);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe o Endereço";
+            this.validador.SetValidationRule(this.enderecoTextEdit, conditionValidationRule9);
             // 
             // cpfTextEdit
             // 
@@ -624,9 +624,9 @@
             this.cpfTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.cpfTextEdit.Size = new System.Drawing.Size(181, 20);
             this.cpfTextEdit.TabIndex = 3;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "Informe o CPF";
-            this.validador.SetValidationRule(this.cpfTextEdit, conditionValidationRule9);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "Informe o CPF";
+            this.validador.SetValidationRule(this.cpfTextEdit, conditionValidationRule10);
             // 
             // bdgCliente
             // 
@@ -640,9 +640,9 @@
             this.nome_completoTextEdit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.nome_completoTextEdit.Size = new System.Drawing.Size(379, 20);
             this.nome_completoTextEdit.TabIndex = 1;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "Informe o nome completo do Cliente";
-            this.validador.SetValidationRule(this.nome_completoTextEdit, conditionValidationRule10);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "Informe o nome completo do Cliente";
+            this.validador.SetValidationRule(this.nome_completoTextEdit, conditionValidationRule11);
             // 
             // CadastroRapidoCliente
             // 
@@ -674,10 +674,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgContato)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.telefoneTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbBairro.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.complementoTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endereco_numeroTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enderecoTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpfTextEdit.Properties)).EndInit();

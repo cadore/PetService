@@ -29,6 +29,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading;
 using System;
+using PetService;
 
 namespace PetaPoco
 {
@@ -5137,6 +5138,7 @@ namespace PetaPoco
             _command = command;
             _reader = reader;
             _defaultMapper = defaultMapper;
+            PetRepo.LoadIMapper(_defaultMapper);
         }
 
         #region public Read<T> methods
