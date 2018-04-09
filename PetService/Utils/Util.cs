@@ -14,12 +14,12 @@ namespace PetService.Utils
     {
         public static string Decrypt(String s)
         {
-            return new DTICrypto().Decifrar(s, "wjm");
+            return new DTICrypto().Decifrar(s, "pet");
         }
 
         public static string Encrypt(String s)
         {
-            return new DTICrypto().Cifrar(s, "wjm");
+            return new DTICrypto().Cifrar(s, "pet");
         }
 
         public static string RemoveSpecialCharacters(string text)
