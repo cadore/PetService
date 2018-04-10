@@ -20,13 +20,13 @@ namespace PetService.UI.Clientes
         public ClienteView(cliente c)
         {
             InitializeComponent();
-            Validations();
             if (c == null)
             {
                 IsNew = true;
                 c = new cliente();
                 bdgContatos.DataSource = new List<clientes_contato>();
                 bdgEnderecos.DataSource = new List<clientes_endereco>();
+                Validations();
             }
             else
             {
@@ -41,15 +41,16 @@ namespace PetService.UI.Clientes
 
         private void Validations()
         {
-            ValidationsUtil.ValidatorCPFCNPJ validatorCPFCNPJ = new ValidationsUtil.ValidatorCPFCNPJ();
-            validatorCPFCNPJ.ErrorText = "O CPF informado esta incorreto.";
+            ValidationsUtil.ValidatorCPFCNPJ validatorCPFCNPJ = new ValidationsUtil.ValidatorCPFCNPJ() 
+            { ErrorText = "O CPF informado esta incorreto." };
             this.ValidadorPrincipal.SetValidationRule(this.tfCPF, validatorCPFCNPJ);
 
-            ValidationsUtil.UniqueCPF uniqueCPF = new ValidationsUtil.UniqueCPF("clientes", "cpf");
-            uniqueCPF.ErrorText = "O CPF informado ja esta cadastrado no sistema.";
+            ValidationsUtil.UniqueCPF uniqueCPF = new ValidationsUtil.UniqueCPF("clientes", "cpf") 
+            { ErrorText = "O CPF informado ja esta cadastrado no sistema." };
             this.ValidadorUnique.SetValidationRule(this.tfCPF, uniqueCPF);
-            ValidationsUtil.UniqueCPF uniqueRG = new ValidationsUtil.UniqueCPF("clientes", "rg");
-            uniqueRG.ErrorText = "O RG informado ja esta cadastrado no sistema.";
+
+            ValidationsUtil.UniqueCPF uniqueRG = new ValidationsUtil.UniqueCPF("clientes", "rg") 
+            { ErrorText = "O RG informado ja esta cadastrado no sistema." };
             this.ValidadorUnique.SetValidationRule(this.tfRG, uniqueRG);
         }
 

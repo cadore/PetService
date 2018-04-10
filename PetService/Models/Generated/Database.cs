@@ -537,6 +537,9 @@ namespace PetService
 		[Column] public bool pre_cadastro { get; set; }
 
 
+        public string contatos_tabela { get; set; }
+
+
 
 	}
 

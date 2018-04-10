@@ -72,7 +72,8 @@ namespace PetService.UI
 
         private void btn_pesquisar_cliente_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            PesquisarClientesForm pcf = new PesquisarClientesForm();
+            AddTab(pcf, "Pesquisar Clientes", false);
         }
 
         private void DesktopForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -93,13 +94,6 @@ namespace PetService.UI
         {
             BairrosForm bf = new BairrosForm();
             bf.ShowDialog();
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var poco = PocoData.ForObject(new cliente(), "id", cliente.repo.DefaultMapper);
-            Console.WriteLine(poco.TableInfo.TableName);
-            Console.WriteLine(poco.Columns.Values);
         }
     }
 }
